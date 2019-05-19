@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Cateroies  Mercado Libre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-img src="https://pbs.twimg.com/profile_images/3596669314/95250957ca13505b8668022fcc830da5_400x400.jpeg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Mercado Libre APP</ion-card-subtitle>
+        <ion-card-title>Welcome to Caterories</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your are this, you'll can view categories from Mercado Libre.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+      <ion-list-header>El siguente select es gracias a ngOnInit() :)</ion-list-header>
+      <ion-item>
+        <ion-label>Categories</ion-label>
+        <ion-select (ionChange)='getCategories($event)' required [(ngModel)]='Categorie'>
+          <ion-select-option *ngFor='let categorie of allCategories' value='{{categorie.id}}'>{{categorie.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <div *ngIf='categorieChildrenDiv'>
+      <ion-list>
+        <ion-list-header>Y este select es gracias a ngIf</ion-list-header>
+        <ion-item>
+          <ion-label>Childrens</ion-label>
+          <ion-select interface="action-sheet">
+            <ion-select-option *ngFor='let categorieChildren of categoriesChildren'>{{categorieChildren.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-input (ionChange)=getSuggestedCategories($event) clearInput placeholder="Ej: camisa, mueble, etc" autocorrect='on' autofocus='true' spellcheck='true'></ion-input>
+    <div *ngIf='suggestionCategoriesDiv'>
+      <ion-list>
+        <ion-item>
+          <ion-label>Vea las categorias sugeridas</ion-label>
+          <ion-select interface='popover'>
+            <ion-select-option *ngFor='let categorie of suggestedCategories'>{{categorie.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Resources</ion-label>
+      </ion-list-header>
+      <ion-item href="https://ionicframework.com/docs/">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Ionic Documentation</ion-label>(*)
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+        <ion-icon slot="start" color="medium" name="build"></ion-icon>
+        <ion-label>Scaffold Out Your App</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/layout/structure">
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label>Change Your App Layout</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/theming/basics">
+        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+        <ion-label>Theme Your App</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>
