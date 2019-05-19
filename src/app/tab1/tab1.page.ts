@@ -11,12 +11,12 @@ import { Categorie } from '../Model/Categorie';
 export class Tab1Page {
 
   private meli: MercadoLibreApi;
-  private allCategories: Categorie[];
+  public allCategories: Categorie[];
   private categoriesChildren : Categorie[];
   private suggestedCategories : Categorie[];
-
-  private categorieChildrenDiv : boolean = false;
-  private suggestionCategoriesDiv : boolean = false;
+public Categorie : Categorie;
+  public categorieChildrenDiv : boolean = false;
+  public suggestionCategoriesDiv : boolean = false;
   
   constructor(meliMla: MercadoLibreApi){
     this.meli = meliMla;

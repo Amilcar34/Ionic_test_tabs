@@ -21,7 +21,7 @@
       <ion-list-header>El siguente select es gracias a ngOnInit() :)</ion-list-header>
       <ion-item>
         <ion-label>Categories</ion-label>
-        <ion-select (ionChange)='getCategories($event)' required [(ngModel)]='Categorie'>
+        <ion-select (ionChange)='getCategories($event)' [(ngModel)]='Categorie'>
           <ion-select-option *ngFor='let categorie of allCategories' value='{{categorie.id}}'>{{categorie.name}}</ion-select-option>
         </ion-select>
       </ion-item>
